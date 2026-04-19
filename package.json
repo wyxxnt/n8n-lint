@@ -1,0 +1,49 @@
+{
+  "name": "n8n-lint",
+  "version": "0.1.0",
+  "description": "A CI-friendly static analyzer for n8n workflow JSON files.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyxxnt/n8n-lint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wyxxnt/n8n-lint/issues"
+  },
+  "homepage": "https://github.com/wyxxnt/n8n-lint#readme",
+  "keywords": [
+    "n8n",
+    "n8n-workflow",
+    "workflow",
+    "workflow-automation",
+    "linter",
+    "static-analysis",
+    "cli",
+    "ci"
+  ],
+  "type": "module",
+  "bin": {
+    "n8n-lint": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "picocolors": "^1.1.1",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0",
+    "vitest": "^4.1.8"
+  }
+}
