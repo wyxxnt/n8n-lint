@@ -1,0 +1,22 @@
+{
+  "name": "bad orphan node",
+  "nodes": [
+    {
+      "id": "trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "parameters": {}
+    },
+    {
+      "id": "set",
+      "name": "Unused Formatter",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "parameters": {
+        "fields": {}
+      }
+    }
+  ],
+  "connections": {}
+}
