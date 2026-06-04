@@ -1,0 +1,61 @@
+{
+  "name": "good unbounded loop",
+  "nodes": [
+    {
+      "id": "trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "parameters": {}
+    },
+    {
+      "id": "loop",
+      "name": "Batch Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "parameters": {
+        "batchSize": 10
+      }
+    },
+    {
+      "id": "http",
+      "name": "Call API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "parameters": {
+        "url": "https://example.com/items",
+        "options": {
+          "timeout": 5000
+        }
+      },
+      "retryOnFail": true
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Batch Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Batch Items": {
+      "main": [
+        [
+          {
+            "node": "Call API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "errorWorkflow": "error-workflow-id"
+  }
+}
